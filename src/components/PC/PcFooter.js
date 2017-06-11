@@ -8,9 +8,12 @@ class PcFooter extends Component {
     return (
         <div className="footer">
           <Row>
-            <Col span={2}></Col>
-              &copy;&nbsp;All Right Reserved
-            <Col span={2}></Col>
+            <Col md={2}></Col>
+              <footer md={20}>
+                  &copy;&nbsp;All Right Reserved
+
+              </footer>
+            <Col md={2}></Col>
           </Row>
         </div>
 

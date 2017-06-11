@@ -1,15 +1,35 @@
+
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import PcHeader from './components/PC/PcHeader';
-import PcFooter from './components/PC/PcFooter';
-import PcContainer from './components/PC/PcContainer'
+import PcIndex from './components/PC/PcIndex';
+import 'antd/dist/antd.css';
+import MediaQuery from 'react-responsive';
 
 
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<PcHeader />, document.getElementById('PcHeader'));
-ReactDOM.render(<PcFooter />, document.getElementById('PcFooter'));
-ReactDOM.render(<PcContainer />, document.getElementById('PcContainer'));
-
 
 registerServiceWorker();
+
+
+export default class Root extends React.Component {
+    render() {
+        return (
+            <div>
+                <MediaQuery query='(min-device-width: 1224px)'>
+                    <PcIndex />
+                </MediaQuery>
+                <MediaQuery query='(max-device-width: 1224px)'>
+                    <div>
+                        12312321312
+                    </div>
+                </MediaQuery>
+            </div>
+        );
+    };
+}
+ReactDOM.render(
+    <Root/>, document.getElementById('Root'));
+
+

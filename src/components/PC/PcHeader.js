@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Row,Col,Menu,Icon,Button,Modal,Tabs,Card} from 'antd'
+import {Row,Col,Menu,Icon,Button,Modal,Tabs} from 'antd'
 import 'antd/dist/antd.css'
 import logo from '../../images/logo.png'
 import '../../css/pc.css'
