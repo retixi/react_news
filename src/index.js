@@ -3,6 +3,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PcIndex from './components/PC/PcIndex';
+import PhoneIndex from './components/Phone/PhoneIndex'
 import 'antd/dist/antd.css';
 import MediaQuery from 'react-responsive';
 
@@ -22,7 +23,7 @@ export default class Root extends React.Component {
                 </MediaQuery>
                 <MediaQuery query='(max-device-width: 1224px)'>
                     <div>
-                        12312321312
+                        <PhoneIndex/>
                     </div>
                 </MediaQuery>
             </div>
