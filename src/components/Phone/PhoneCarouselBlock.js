@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Carousel,Card} from 'antd';
 import 'antd/dist/antd.css'
-import '../../css/pc.css'
+import '../../css/mobile.css'
 
 class PhoneNewsBlock extends Component {
     render() {
