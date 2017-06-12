@@ -29,7 +29,9 @@ class PhoneNewsBlock extends Component {
                     </div>
                     <div className="m_article_info">
                         <div className="m_article_title">
+                            <a href={newsItem.url}>
                             <span>{newsItem.title}</span>
+                            </a>
                         </div>
                         <div className="m_article_desc clearfix">
                             <div className="m_article_desc_l">
