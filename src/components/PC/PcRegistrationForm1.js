@@ -17,7 +17,8 @@ class RegistrationForm extends React.Component {
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
-                console.log('Received values of form: ', values);
+                fetch('http://127.0.0.1:3004/add?email='+values.email+'&password='+values.password);
+                alert(' 注册成功')
             }
         });
     }
