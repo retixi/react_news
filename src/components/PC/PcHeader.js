@@ -17,6 +17,7 @@ class Register extends Component {
             visible: true,
         });
     }
+
     handleOk = (e) => {
         console.log(e);
         this.setState({
@@ -37,7 +38,7 @@ class Register extends Component {
                   <Button type="primary" onClick={this.showModal}>注册／登录</Button>
                 </Menu.Item>
               </Menu>
-              <Modal footer={null}
+              <Modal
                   title="用户中心"
                   visible={this.state.visible}
                   onOk={this.handleOk}

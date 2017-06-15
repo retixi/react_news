@@ -13,15 +13,26 @@ class RegistrationForm extends React.Component {
         };
     };
 
+
     handleSubmit = (e) => {
+        var myFetchOptions = {
+            method: 'GET'
+        };
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
-            if (!err) {
-                fetch('http://127.0.0.1:3004/add?email='+values.email+'&password='+values.password);
-                alert(' 注册成功')
+            if (!err ) {
+                fetch('http://127.0.0.1:3004/add?email='+values.email+'&password='+values.password,myFetchOptions).
+                then(response=>response.json()).
+                then(function (json) {
+                        if(json)
+                        {alert('用户'+values.email+'注册成功')}
+                        else
+                        {alert('用户已存在')}
+                    })
             }
         });
     }
+
 
     handleConfirmBlur = (e) => {
         const value = e.target.value;
@@ -121,7 +132,8 @@ class RegistrationForm extends React.Component {
                     )}
                 </FormItem>
                 <FormItem {...tailFormItemLayout}>
-                    <Button type="primary" htmlType="submit" size="large">Register</Button>
+                    <Button type="primary" htmlType="submit" size="large">注册</Button>
+
                 </FormItem>
             </Form>
         </div>
