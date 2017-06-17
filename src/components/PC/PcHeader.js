@@ -11,6 +11,7 @@ const TabPane=Tabs.TabPane
 
 
 class Register extends Component {
+    
     state = { visible: false }
     showModal = () => {
         this.setState({
@@ -39,6 +40,7 @@ class Register extends Component {
                 </Menu.Item>
               </Menu>
               <Modal
+                  footer = {null}
                   title="用户中心"
                   visible={this.state.visible}
                   onOk={this.handleOk}
@@ -47,10 +49,9 @@ class Register extends Component {
 
                   <Tabs>
                     <TabPane tab="登录" key="login">
-                      登录
                     </TabPane>
                     <TabPane tab="注册" key="register">
-                      <PcRegistrationForm1/>
+                      <PcRegistrationForm1 hidemodal={this.handleCancel.bind(this)}/>
                     </TabPane>
                   </Tabs>
 

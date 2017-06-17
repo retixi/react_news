@@ -10,25 +10,35 @@ class RegistrationForm extends React.Component {
         this.state = {
             confirmDirty: false,
             autoCompleteResult: [],
+            registatus : false
+
         };
     };
 
 
+
+
     handleSubmit = (e) => {
+
         var myFetchOptions = {
             method: 'GET'
         };
-        e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err ) {
                 fetch('http://127.0.0.1:3004/add?email='+values.email+'&password='+values.password,myFetchOptions).
                 then(response=>response.json()).
                 then(function (json) {
                         if(json)
-                        {alert('用户'+values.email+'注册成功')}
+                        {alert('用户'+values.email+'注册成功')
+                        this.setRegistatus(true)
+                        }
                         else
-                        {alert('用户已存在')}
-                    })
+                        {alert('用户已存在')
+                        this.setRegistatus(false)
+
+                        }
+
+                })
             }
         });
     }
@@ -85,7 +95,7 @@ class RegistrationForm extends React.Component {
 
         return (
         <div style={{paddingTop: 10}}>
-            <Form onSubmit={this.handleSubmit.bind(this)}>
+            <Form onSubmit={this.handleSubmit}>
                 <FormItem
                     {...formItemLayout}
                     label="E-mail"
@@ -132,7 +142,9 @@ class RegistrationForm extends React.Component {
                     )}
                 </FormItem>
                 <FormItem {...tailFormItemLayout}>
-                    <Button type="primary" htmlType="submit" size="large">注册</Button>
+                    <Button type="primary" htmlType="submit" onClick={this.props.hidemodal} size="large">注册</Button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <Button type="dafault" onClick={this.props.hidemodal} size="large">取消</Button>
 
                 </FormItem>
             </Form>
